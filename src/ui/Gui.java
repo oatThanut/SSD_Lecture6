@@ -31,7 +31,7 @@ public class Gui extends JFrame {
 
 	public void start() {
 		game = new Game();
-		// TODO: Start the game
+		game.start();
 		pack();
 		setVisible(true);
 	}
@@ -98,6 +98,11 @@ public class Gui extends JFrame {
 			int row = e.getY() / squareSize();
 			int col = e.getX() / squareSize();
 			// TODO: Complete the logic of the game here
+			game.currentPlayerTakesAction(row, col);
+			mainPanel.repaint();
+			if (game.isEnd()){
+				showGameOverMessgage();
+			}
 		}	
 	}
 	
